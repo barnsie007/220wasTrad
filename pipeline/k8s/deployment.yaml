@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ta
+  name: ta
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ta
+  template:
+    metadata:
+      labels:
+        app: ta
+    spec:
+      containers:
+        - image: docker.io/application
+          imagePullPolicy: Always
+          name: ta
+          ports:
+            - containerPort: 9080
